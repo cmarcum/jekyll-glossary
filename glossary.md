@@ -33,7 +33,7 @@ title: Jekyll Glossary Template
       <dl>
         {% for item in group.items %}
           <dt>{{ item.term }}</dt>
-          <dd>{{ item.definition }}</dd>
+          <dd>{{ item.definition | markdownify }}</dd>
         {% endfor %}
       </dl>
     </section>
