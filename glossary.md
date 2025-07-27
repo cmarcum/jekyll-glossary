@@ -1,4 +1,4 @@
-{% raw %}---
+---
 layout: default
 title: Jekyll Glossary Template
 ---
@@ -15,33 +15,33 @@ title: Jekyll Glossary Template
 {% assign grouped_terms = sorted_terms | group_by_exp: "item", "item.term | slice: 0, 1 | upcase" %}
 
 <div class="container" id="top">
-    <header>
-        <h1>{{ page.title }}</h1>
-        <p>A comprehensive list of terms and definitions used in this project.</p>
-    </header>
+  <header>
+    <h1>{{ page.title }}</h1>
+    <p>A comprehensive list of terms and definitions used in this project.</p>
+  </header>
 
-    <nav class="alpha-nav">
-        {% for group in grouped_terms %}
-            <a href="#{{ group.name }}">{{ group.name }}</a>
+  <nav class="alpha-nav">
+    {% for group in grouped_terms %}
+      <a href="#{{ group.name }}">{{ group.name }}</a>
+    {% endfor %}
+  </nav>
+
+  <main>
+    {% for group in grouped_terms %}
+    <section id="{{ group.name }}" class="glossary-section">
+      <h2>{{ group.name }}</h2>
+      <dl>
+        {% for item in group.items %}
+          <dt>{{ item.term }}</dt>
+          <dd>{{ item.definition }}</dd>
         {% endfor %}
-    </nav>
+      </dl>
+    </section>
+    {% unless forloop.last %}<hr>{% endunless %}
+    {% endfor %}
+  </main>
 
-    <main>
-        {% for group in grouped_terms %}
-        <section id="{{ group.name }}" class="glossary-section">
-            <h2>{{ group.name }}</h2>
-            <dl>
-                {% for item in group.items %}
-                    <dt>{{ item.term }}</dt>
-                    <dd>{{ item.definition }}</dd>
-                {% endfor %}
-            </dl>
-        </section>
-        {% unless forloop.last %}<hr>{% endunless %}
-        {% endfor %}
-    </main>
-
-    <footer>
-        <a href="#top" class="back-to-top">↑ Back to Top</a>
-    </footer>
-</div>{% endraw %}
+  <footer>
+    <a href="#top" class="back-to-top">↑ Back to Top</a>
+  </footer>
+</div>
