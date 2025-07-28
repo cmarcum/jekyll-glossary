@@ -7,4 +7,4 @@ The template includes a default layout that uses liquid to pull in glossary term
 # Installation
 1. Fork or clone the repository via git.
 2. Activate pages in your local fork/repos.
-3. Add jekyll via actions using the github pages default workflow and settings (Deploy Jekyll with GitHub Pages dependencies preinstalled).
+3. (optional if not including .github/workflows from main) Add jekyll via actions using the github pages default workflow and settings (Deploy Jekyll with GitHub Pages dependencies preinstalled).
