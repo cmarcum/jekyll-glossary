@@ -32,7 +32,7 @@ title: Jekyll Glossary Template
       <h2>{{ group.name }}</h2>
       <dl>
         {% for item in group.items %}
-          <dt>{{ item.term }}</dt>
+          <dt id="{{ item.slug | default: item.term | slugify }}">{{ item.term }}</dt>
           <dd>{{ item.definition | markdownify }}</dd>
         {% endfor %}
       </dl>
@@ -45,3 +45,4 @@ title: Jekyll Glossary Template
     <a href="#top" class="back-to-top">↑ Back to Top</a>
   </footer>
 </div>
+
